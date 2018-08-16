@@ -17,5 +17,9 @@ module.exports = {
   moduleNameMapper: {
     '\.(css|jpg|png)$': '<rootDir>/empty-module.js',
   },
+  collectCoverageFrom: [
+    'src/**/*.{ts,tsx}',
+    '!src/index.tsx',
+  ],
   'testURL': 'http://localhost/',
 }
