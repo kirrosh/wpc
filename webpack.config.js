@@ -1,21 +1,35 @@
 const path = require('path');
-module.exports = {
-    entry: "./src/index.tsx",
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+
+
+
+module.exports = function(env) {
+  return ({
+    devtool: env === 'production' ? 'source-map' : 'cheap-eval-source-map',
     output: {
-        filename: "[name].bundle.js",
-        path: path.resolve(__dirname, 'dist'),
+          filename: "[name].bundle.js",
+          path: path.resolve(__dirname, 'dist'),
     },
-    devtool: 'source-map',
+    devtool: env === 'production' ? 'source-map' : 'cheap-eval-source-map',
     resolve: {
         extensions: ['.js', '.json', '.ts', '.tsx'],
     },
     module: {
         rules: [
             {
-                test: /\.tsx$/,
+                test: /\.tsx?$/,
                 loader: "awesome-typescript-loader"
-            },
+            }
         ]
     },
-    
+    plugins: [
+      new UglifyJSPlugin({sourceMap: true}),
+      new HtmlWebpackPlugin({
+          template: path.join(__dirname, 'public', 'index.html'),
+        }),
+      new CleanWebpackPlugin(['dist']),
+    ],
+  });
 };
