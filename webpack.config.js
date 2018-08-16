@@ -21,7 +21,15 @@ module.exports = function(env) {
             {
                 test: /\.tsx?$/,
                 loader: "awesome-typescript-loader"
-            }
+            },
+            {
+              test: /\.js$/,
+              exclude: /node_modules/,
+              loader: 'babel-loader',
+              options: {
+                presets: ['es2015']
+               }
+            },
         ]
     },
     plugins: [
