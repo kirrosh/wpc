@@ -1,6 +1,6 @@
 import React from 'react';
 import styled  from 'styled-components';
-import { HeroTale, StyledWow, Header, HeroIndent } from './styled';
+import { HeroTale, StyledWow, Header, HeroIndent, MidContent, MidText } from './styled';
 
 
 export default class FullInfo extends React.PureComponent {
@@ -22,7 +22,16 @@ export default class FullInfo extends React.PureComponent {
           <HeroTale noMargin={true}/>
         </div>
         <div>
-          <Header/>
+          <Header>
+            <MidText>LGD</MidText>
+            <MidText>-</MidText>
+            <MidText>VP</MidText>
+          </Header>
+          <MidContent>
+            <MidText>32</MidText>
+            <MidText>-</MidText>
+            <MidText>12</MidText>
+          </MidContent>
         </div>
         <div>
           <HeroTale right={true}/>

@@ -7,7 +7,6 @@ interface AppProps {
 export default function ({ message }: AppProps) {
   return (
     <div>
-      <h1>Hello {message}</h1>
       <FullInfo />
     </div>
   );
