@@ -9,13 +9,10 @@ module.exports = function(env) {
   return ({
     devtool: env === 'production' ? 'source-map' : 'cheap-eval-source-map',
     output: {
-          filename: "[name].bundle.js",
-          path: path.resolve(__dirname, 'dist'),
+        filename: "[name].bundle.js",
+        path: path.resolve(__dirname, 'dist'),
     },
     devtool: env === 'production' ? 'source-map' : 'cheap-eval-source-map',
-    resolve: {
-        extensions: ['.js', '.json', '.ts', '.tsx'],
-    },
     module: {
         rules: [
             {
@@ -23,7 +20,7 @@ module.exports = function(env) {
                 loader: "awesome-typescript-loader"
             },
             {
-              test: /\.js$/,
+              test: /\.jsx$/,
               exclude: /node_modules/,
               loader: 'babel-loader',
               options: {
@@ -39,5 +36,9 @@ module.exports = function(env) {
         }),
       new CleanWebpackPlugin(['dist']),
     ],
+    resolve: {
+      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+      extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
+    }
   });
 };

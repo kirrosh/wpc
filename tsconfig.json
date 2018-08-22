@@ -1,21 +1,25 @@
 {
   "compilerOptions": {
-      "allowSyntheticDefaultImports": true,
-      "jsx": "react",
-      "module": "ESNext",
-      "moduleResolution": "node",
-      "noImplicitAny": true,
-      "sourceMap": true,
-      "target": "es5",
-      "plugins": [
-        {
-          "name": "typescript-styled-plugin",
-          "tags": [
-            "styled",
-            "css"
-          ]
-        }
-      ]
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "sourceMap": true,
+    "target": "es5",
+    "plugins": [
+      {
+        "name": "typescript-styled-plugin",
+        "tags": [
+          "styled",
+          "css"
+        ]
+      }
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "*": ["*", "src/*"]
+    },
   },
   "exclude": [
       "node_modules"
