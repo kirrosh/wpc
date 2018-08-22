@@ -13,9 +13,6 @@ module.exports = function(env) {
         path: path.resolve(__dirname, 'dist'),
     },
     devtool: env === 'production' ? 'source-map' : 'cheap-eval-source-map',
-    resolve: {
-        extensions: ['.js', '.json', '.ts', '.tsx'],
-    },
     module: {
         rules: [
             {
@@ -39,5 +36,9 @@ module.exports = function(env) {
         }),
       new CleanWebpackPlugin(['dist']),
     ],
+    resolve: {
+      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+      extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
+    }
   });
 };
