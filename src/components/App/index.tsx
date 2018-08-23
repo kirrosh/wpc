@@ -1,6 +1,7 @@
 import React from 'react';
 import MainLayout from 'components/MainLayout';
-import { HeaderLayout, AppLayout } from './styled';
+import { AppLayout } from './styled';
+import HeaderLayout from 'components/HeaderLayout';
 
 
 interface AppProps {

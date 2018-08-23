@@ -1,14 +1,12 @@
 import React from 'react';
-import { StyledMainLayout, SimpleContent } from './styled';
+import GridLayout from 'components/GridLayout';
 
 class MainLayout extends React.PureComponent {
   render() {
     return (
-      <StyledMainLayout>
-        <SimpleContent>
-          Loren Ipsum
-        </SimpleContent>
-      </StyledMainLayout>
+      <GridLayout columnSize={'5fr'}>
+        Loren Ipsum
+      </GridLayout>
     );
   }
 }
