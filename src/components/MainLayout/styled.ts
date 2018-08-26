@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { createDefaultGrid } from 'styled/grid/mixins';
+import { createDefaultGrid } from 'components/GridLayout/mixins';
 
 // base layout inspired by
 // CSS Grid layout: multiply & conquer — or how to actually design using The Grid.

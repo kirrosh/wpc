@@ -1,7 +1,11 @@
+import { ReactNode } from 'react';
+
 export type GridLayoutProps = {
   className?: string;
-} & GridLayoutSize;
-
-export type GridLayoutSize = {
   columnSize?: string;
+};
+
+export type FilteredReactChildren = {
+  simpleComponents: ReactNode[];
+  wideComponents: ReactNode[];
 };

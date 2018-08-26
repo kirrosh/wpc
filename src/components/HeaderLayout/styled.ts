@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { createDefaultGrid } from 'styled/grid/mixins';
 import GridLayout from 'components/GridLayout';
 
 
