@@ -1,20 +1,14 @@
 import React from 'react';
-import { StyledGridLayout, SimpleContent, WideContent } from './styled';
+import { StyledGridLayout } from './styled';
 import { GridLayoutProps } from 'components/GridLayout/types';
-import { getSimleAndWideComponents } from 'components/GridLayout/utils';
-
+import { makeItGridy } from 'components/GridLayout/utils';
 
 class GridLayout extends React.PureComponent<GridLayoutProps> {
   render() {
-    const filteredChildren = getSimleAndWideComponents(this.props.children);
+    const children = makeItGridy(this.props.children);
     return (
       <StyledGridLayout columnSize={this.props.columnSize} className={this.props.className}>
-        <SimpleContent>
-          {filteredChildren.simpleComponents}
-        </SimpleContent>
-        <WideContent>
-          {filteredChildren.wideComponents}
-        </WideContent>
+        {children}
       </StyledGridLayout>
     );
   }

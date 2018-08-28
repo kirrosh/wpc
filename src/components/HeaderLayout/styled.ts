@@ -11,13 +11,11 @@ export const StyledHeaderLayout = styled(GridLayout)`
 
 export const StyledHeader = styled.div`
   display: flex;
-  height: 100%;
+  height: 32px;
   a {
     text-decoration: none;
     height: 100%;
   }
-  /* grid-template-columns: repeat(3, 1fr); */
-  /* grid-gap: 8px; */
 `;
 
 export const HeaderLink = styled.div`
@@ -26,7 +24,6 @@ export const HeaderLink = styled.div`
   height: 32px;
   align-items: center;
   display: flex;
-  background-color: #f9f9f9;
-  border: 1px solid red;
+  background-color: #14f5f4;
   margin-right: 8px;
 `;
