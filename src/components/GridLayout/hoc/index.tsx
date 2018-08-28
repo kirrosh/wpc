@@ -1,16 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Div } from 'styled';
+import { GridOptions } from './types';
 
-export const performComponent = (Component: React.ReactElement<any>, gridOptions: {gridColumnStart: number; gridColumnEnd: number}) => {
+const createStyledGridItem = (type: React.ComponentType, gridOptions: GridOptions) => styled(type)`
+  grid-column-start: ${gridOptions.gridColumnStart};
+  grid-column-end: ${gridOptions.gridColumnEnd};
+`;
+
+export const performComponent = (Component: React.ReactElement<any>, gridOptions: GridOptions) => {
   if (typeof Component.type !== 'string') {
-    const ST = styled(Component.type)`
-      grid-column-start: ${gridOptions.gridColumnStart};
-      grid-column-end: ${gridOptions.gridColumnEnd};
-      /* width: 100%; */
-  `;
-    return (<ST {...Component.props}/>);
+    const SC = createStyledGridItem(Component.type, gridOptions);
+    return (<SC {...Component.props}/>);
   }
-  return Component;
+
+  const SC = createStyledGridItem(Div, gridOptions);
+  return (<SC {...Component.props}/>);
 };
 
 export const performSimple = (Component: React.ReactElement<any>) =>
