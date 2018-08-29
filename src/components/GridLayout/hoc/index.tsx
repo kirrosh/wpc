@@ -1,20 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Div } from 'styled';
-import { GridOptions } from './types';
+import { GridOptions, StandartReactComponentType } from './types';
 
-const createStyledGridItem = (type: React.ComponentType, gridOptions: GridOptions) => styled(type)`
+const createStyledGridItem = (type: StandartReactComponentType, gridOptions: GridOptions) => styled(type as any)`
   grid-column-start: ${gridOptions.gridColumnStart};
   grid-column-end: ${gridOptions.gridColumnEnd};
 `;
 
 export const performComponent = (Component: React.ReactElement<any>, gridOptions: GridOptions) => {
-  if (typeof Component.type !== 'string') {
-    const SC = createStyledGridItem(Component.type, gridOptions);
-    return (<SC {...Component.props}/>);
-  }
-
-  const SC = createStyledGridItem(Div, gridOptions);
+  const SC = createStyledGridItem(Component.type, gridOptions);
   return (<SC {...Component.props}/>);
 };
 
