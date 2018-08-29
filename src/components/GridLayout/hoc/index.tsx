@@ -1,15 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Div } from 'styled';
-import { GridOptions, StandartReactComponentType } from './types';
+import { GridOptions } from './types';
 
-const createStyledGridItem = (type: StandartReactComponentType, gridOptions: GridOptions) => styled(type as any)`
-  grid-column-start: ${gridOptions.gridColumnStart};
-  grid-column-end: ${gridOptions.gridColumnEnd};
-`;
 
-export const performComponent = (Component: React.ReactElement<any>, gridOptions: GridOptions) => {
-  const SC = createStyledGridItem(Component.type, gridOptions);
+const performComponent = (Component: React.ReactElement<any>, gridOptions: GridOptions) => {
+  const SC = styled(Component.type as any)`
+    grid-column-start: ${gridOptions.gridColumnStart};
+    grid-column-end: ${gridOptions.gridColumnEnd};
+  `;
   return (<SC {...Component.props}/>);
 };
 

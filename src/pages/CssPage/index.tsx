@@ -4,12 +4,13 @@ import WideComponent from 'components/GridLayout/WideComponent';
 import { BoldBorder, BigBlueBoldBorder } from './styled';
 import cssPosts from 'fakeData/css/posts';
 import Post from 'components/Post';
+import SimpleComponent from 'components/GridLayout/SimpleComponent';
 
 class CssPage extends React.PureComponent {
   render() {
     return(
       <MainLayout>
-        {cssPosts.map(post => (<Post post={post}/>))}
+        {cssPosts.map(post => (<SimpleComponent><Post post={post}/></SimpleComponent>))}
         {/* <BoldBorder>simple CSS</BoldBorder> */}
         {/* <WideComponent> */}
           {/* <BigBlueBoldBorder/> */}
