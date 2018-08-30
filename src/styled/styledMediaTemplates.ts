@@ -18,10 +18,10 @@ const sizes: DisplaySizes = {
 };
 
 // iterate through the sizes and create a media template
-export const styledMediaTemplates: MediaTemplates = Object.keys(sizes).reduce((acc, label: keyof DisplaySizes) => {
+export const styledMediaTemplates: MediaTemplates = Object.keys(sizes).reduce((acc, label) => {
   // use em in breakpoints to work properly cross-browser and support users
   // changing their browsers font-size: https://zellwk.com/blog/media-query-units/
-  const emSize = sizes[label] / 16;
+  const emSize = sizes[label as keyof DisplaySizes] / 16;
   const foo = (args: TemplateStringsArray) => css`
     @media (max-width: ${emSize}em) {
       ${css(args)}
