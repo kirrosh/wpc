@@ -1,16 +1,19 @@
 import styled, { css } from 'styled-components';
 import GridLayout from 'components/GridLayout';
+import { styledMediaTemplates } from 'styled/styledMediaTemplates';
 
 const HEADER_HEIGHT = '60px';
 
 export const StyledHeaderLayout = styled(GridLayout)`
-  background-color: #f9f9f9;
   background-color: ${props => props.theme.colors.main};
   width: 100%;
   position: fixed;
   z-index: 500;
   top: 0;
   height: ${HEADER_HEIGHT};
+  ${styledMediaTemplates.desktop`background-color: #f9f9f9;`}
+  ${styledMediaTemplates.tablet`background-color: red;`}
+  ${styledMediaTemplates.phone`background-color: blue;`}
 `;
 
 export const HeaderSpacer = styled.div`

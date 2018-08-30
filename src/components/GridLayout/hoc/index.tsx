@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { GridOptions } from './types';
 
-
+// styled wants JSX.IntrinsicElements as argument but Component type could be string
 const performComponent = (Component: React.ReactElement<any>, gridOptions: GridOptions) => {
   const SC = styled(Component.type as any)`
     grid-column-start: ${gridOptions.gridColumnStart};

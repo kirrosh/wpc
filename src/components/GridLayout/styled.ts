@@ -5,7 +5,3 @@ import { createDefaultGrid } from 'components/GridLayout/mixins';
 export const StyledGridLayout = styled.div`
   ${({ columnSize }: GridLayoutProps) => createDefaultGrid(columnSize ? columnSize : '10fr')}
 `;
-
-export const StyledSimple = styled.div`
-  border: 1px solid black;
-`;
