@@ -12,7 +12,6 @@ module.exports = function(env) {
         filename: "[name].bundle.js",
         path: path.resolve(__dirname, 'dist'),
     },
-    devtool: env === 'production' ? 'source-map' : 'cheap-eval-source-map',
     module: {
         rules: [
             {
@@ -20,13 +19,16 @@ module.exports = function(env) {
                 loader: "awesome-typescript-loader"
             },
             {
-              test: /\.jsx$/,
-              exclude: /node_modules/,
-              loader: 'babel-loader',
+              test: /\.(eot|woff|woff2|ttf)(\?v=\d+\.\d+\.\d+)?/,
+              use: {
+              loader: 'file-loader',
               options: {
-                presets: ['es2015']
-               }
-            },
+                  limit: 100000,
+                  name: '[name].[ext]',
+                  publicPath: "/fonts",
+                },
+              },
+            }
         ]
     },
     plugins: [

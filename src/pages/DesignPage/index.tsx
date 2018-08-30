@@ -1,13 +1,13 @@
 import React from 'react';
 import MainLayout from 'components/MainLayout';
 import WideComponent from 'components/GridLayout/WideComponent';
-import SimpleComponent from 'components/GridLayout/SimpleComponent';
+import { BoldBorder } from 'pages/CssPage/styled';
 
 class DesignPage extends React.PureComponent {
   render() {
     return(
       <MainLayout>
-        <SimpleComponent>simple Design</SimpleComponent>
+        <BoldBorder>simple Design</BoldBorder>
         <WideComponent>Wide Component</WideComponent>
       </MainLayout>
     );

@@ -11,7 +11,7 @@ class Post extends React.PureComponent<PostProps> {
   render() {
     const { creationDate, text, title } = this.props.post;
     return (
-        <StyledPost>
+        <StyledPost className={this.props.className}>
           <h1>{title}</h1>
           <p>{text}</p>
           <h3>{creationDate}</h3>

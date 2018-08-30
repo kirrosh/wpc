@@ -7,7 +7,7 @@ class GridLayout extends React.PureComponent<GridLayoutProps> {
   render() {
     const children = makeItGridy(this.props.children);
     return (
-      <StyledGridLayout columnSize={this.props.columnSize} className={this.props.className}>
+      <StyledGridLayout columnSize={this.props.columnSize} className={this.props.className} >
         {children}
       </StyledGridLayout>
     );

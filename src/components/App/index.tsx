@@ -7,11 +7,8 @@ import JavascriptPage from 'pages/JavascriptPage';
 import CssPage from 'pages/CssPage';
 import DesignPage from 'pages/DesignPage';
 
-interface AppProps {
-  message: string;
-}
 
-export default function ({ message }: AppProps) {
+export default function () {
   return (
     <HashRouter>
       <AppLayout>

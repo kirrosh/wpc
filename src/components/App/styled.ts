@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+import { productSansFont } from 'assets/fonts';
 
 export const AppLayout = styled.div`
-  /* display: grid; */
-  /* grid-template-rows: 32px 1fr; */
+  ${productSansFont}
+  font-family: Product Sans;
   width: 100%;
   body {
     margin: 0px;
