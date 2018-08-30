@@ -24,8 +24,8 @@ module.exports = function(env) {
               loader: 'file-loader',
               options: {
                   limit: 100000,
-                  name: '[name].[ext]',
-                  publicPath: "/fonts",
+                  name: 'fonts/[name].[ext]',
+                  publicPath: "/",
                 },
               },
             }
