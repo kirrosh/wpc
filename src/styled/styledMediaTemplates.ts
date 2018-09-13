@@ -1,4 +1,4 @@
-import { css, InterpolationValue } from 'styled-components';
+import { css, InterpolationValue, FlattenInterpolation } from 'styled-components';
 
 export type DisplaySizes = {
   desktop: number;
@@ -6,7 +6,8 @@ export type DisplaySizes = {
   phone: number;
 };
 
-export type MediaTemplates = Record<keyof DisplaySizes, (args: TemplateStringsArray | InterpolationValue[]) => InterpolationValue[]>;
+export type MediaTemplatesFuntion = (args: TemplateStringsArray | InterpolationValue[] | FlattenInterpolation<any>[]) => InterpolationValue[] | FlattenInterpolation<any>[];
+export type MediaTemplates = Record<keyof DisplaySizes, MediaTemplatesFuntion>;
 
 
 const sizes: DisplaySizes = {
@@ -15,12 +16,14 @@ const sizes: DisplaySizes = {
   phone: 376,
 };
 
+
 // iterate through the sizes and create a media template
+// can be used in 2 ways:
+// styledMediaTemplates.desktop(css`{some styles}`)
+// styledMediaTemplates.desktop`{some styles}`
 export const styledMediaTemplates: MediaTemplates = Object.keys(sizes).reduce((acc, label) => {
-  // use em in breakpoints to work properly cross-browser and support users
-  // changing their browsers font-size: https://zellwk.com/blog/media-query-units/
   const emSize = sizes[label as keyof DisplaySizes] / 16;
-  const foo = (args: TemplateStringsArray | InterpolationValue[]) => css`
+  const foo: MediaTemplatesFuntion = args => css`
     @media (max-width: ${emSize}em) {
       ${args}
     }

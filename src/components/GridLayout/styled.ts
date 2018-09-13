@@ -3,7 +3,7 @@ import { GridLayoutProps } from 'components/GridLayout/types';
 import { createDefaultGrid } from 'components/GridLayout/mixins';
 import { styledMediaTemplates } from 'styled/styledMediaTemplates';
 
-export const StyledGridLayout = styled.div`
+export const StyledGridLayout = styled.div<GridLayoutProps>`
   ${({ columnSize }: GridLayoutProps) => {
     return css`
       display: grid;

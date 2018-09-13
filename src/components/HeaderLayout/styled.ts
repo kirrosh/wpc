@@ -1,8 +1,9 @@
-import styled from 'styled';
+import styled, { css } from 'styled';
 import GridLayout from 'components/GridLayout';
 import { styledMediaTemplates } from 'styled/styledMediaTemplates';
 
 const HEADER_HEIGHT = '60px';
+const bg = css`background-color: ${props => props.theme.colors.background.light}`;
 
 export const StyledHeaderLayout = styled(GridLayout)`
   background-color: ${props => props.theme.colors.main};
@@ -11,7 +12,7 @@ export const StyledHeaderLayout = styled(GridLayout)`
   z-index: 500;
   top: 0;
   height: ${HEADER_HEIGHT};
-  ${styledMediaTemplates.desktop`background-color: #f9f9f9;`}
+  ${styledMediaTemplates.desktop(bg)}
   ${styledMediaTemplates.tablet`background-color: red;`}
   ${styledMediaTemplates.phone`background-color: blue;`}
 `;
