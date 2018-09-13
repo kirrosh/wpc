@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled';
 import GridLayout from 'components/GridLayout';
 import { styledMediaTemplates } from 'styled/styledMediaTemplates';
 

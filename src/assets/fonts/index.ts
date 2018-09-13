@@ -1,4 +1,4 @@
-import { css } from 'styled-components';
+import { css } from 'styled';
 import ProductSansTTF from './ProductSans-Regular.ttf';
 import ProductSansEOT from './ProductSans-Regular.eot';
 import ProductSansWOFF from './ProductSans-Regular.woff';

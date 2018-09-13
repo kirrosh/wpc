@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled';
 import { GridOptions } from './types';
 
 // styled wants JSX.IntrinsicElements as argument but Component type could be string

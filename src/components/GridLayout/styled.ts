@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from 'styled';
 import { GridLayoutProps } from 'components/GridLayout/types';
 import { createDefaultGrid } from 'components/GridLayout/mixins';
 import { styledMediaTemplates } from 'styled/styledMediaTemplates';

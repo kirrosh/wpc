@@ -5,6 +5,7 @@ import { performSimple, performWide } from 'components/GridLayout/hoc';
 export const makeItGridy = (children: ReactNode | ReactNode[]) => {
   return React.Children.map(children, (child) => {
     if (typeof child === 'object') {
+      // TODO: создать список широких компонентов?
       if (child.type === WideComponent) {
         return performWide(child);
       }
