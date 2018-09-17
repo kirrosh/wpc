@@ -1,12 +1,12 @@
 import React from 'react';
-import { GridElement, StyledBigColoredLabel, LabelRight } from './styled';
+import { GridElement, StyledBigColoredLabel } from './styled';
 import { GridElementProps } from './types';
 
 const gridOptions: GridElementProps = {
   columnStart: 2,
-  columnEnd: 6,
+  columnEnd: 18,
   rowStart: 2,
-  rowEnd: 12,
+  rowEnd: 9,
 };
 
 class BigColoredLabel extends React.PureComponent {
@@ -14,7 +14,6 @@ class BigColoredLabel extends React.PureComponent {
     return (
       <GridElement {...gridOptions}>
         <StyledBigColoredLabel/>
-        <LabelRight/>
       </GridElement>
     );
   }

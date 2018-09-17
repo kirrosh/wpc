@@ -1,6 +1,6 @@
 export type GridElementProps = {
-  rowStart: number;
-  rowEnd: number;
-  columnStart: number;
-  columnEnd: number;
+  rowStart?: number;
+  rowEnd?: number;
+  columnStart?: number;
+  columnEnd?: number;
 };
