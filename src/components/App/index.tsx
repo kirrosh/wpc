@@ -1,21 +1,12 @@
 import React from 'react';
-import { AppLayout } from './styled';
-import HeaderLayout from 'components/HeaderLayout';
 import { HashRouter, Route } from 'react-router-dom';
-import JavascriptPage from 'pages/JavascriptPage';
-import CssPage from 'pages/CssPage';
-import DesignPage from 'pages/DesignPage';
+import HomePage from 'pages/Home';
 
 
 export default function () {
   return (
     <HashRouter>
-      <AppLayout>
-        <HeaderLayout/>
-        <Route path={'/javascript'} component={JavascriptPage}/>
-        <Route path={'/css'} component={CssPage}/>
-        <Route path={'/design'} component={DesignPage}/>
-      </AppLayout>
+        <Route path={'/'} component={HomePage}/>
     </HashRouter>
   );
 }
