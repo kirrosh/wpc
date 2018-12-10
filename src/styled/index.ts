@@ -9,12 +9,12 @@ import theme  from './theme';
 const {
   default: styled,
   css,
-  injectGlobal,
+  // injectGlobal,
   keyframes,
   ThemeProvider,
 } = styledComponents as styledComponents.ThemedStyledComponentsModule<typeof theme>;
 
 type ThemedStyledProps<P> = styledComponents.ThemedStyledProps<P, typeof theme>;
 
-export { css, injectGlobal, keyframes, ThemeProvider, ThemedStyledProps };
+export { css, keyframes, ThemeProvider, ThemedStyledProps };
 export default styled;
