@@ -5,11 +5,9 @@
 import * as styledComponents from 'styled-components';
 
 import theme  from './theme';
-// в 4 версии cs должны быть исправлены баги с типами
 const {
   default: styled,
   css,
-  // injectGlobal,
   keyframes,
   ThemeProvider,
 } = styledComponents as styledComponents.ThemedStyledComponentsModule<typeof theme>;

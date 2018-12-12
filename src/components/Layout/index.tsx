@@ -1,9 +1,15 @@
-import React from 'react';
+import * as React from 'react';
+import { StyledLayout, LayoutContent } from './styled';
 
 class Layout extends React.PureComponent {
   render() {
+    const { children } = this.props;
     return (
-      <div/>
+      <StyledLayout>
+        <LayoutContent>
+          {children}
+        </LayoutContent>
+      </StyledLayout>
     );
   }
 }
