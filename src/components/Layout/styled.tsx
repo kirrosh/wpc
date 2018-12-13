@@ -11,5 +11,7 @@ export const LayoutContent = styled.div`
   grid-column-start: 3;
   grid-column-end: 4;
   background-color: ${({ theme }) => theme.colors.background.dark};
-  color: white;
+  border: ${({ theme }) => theme.styles.border};
+  color: ${({ theme }) => theme.colors.text.primary};
+  font-family: ${({ theme }) => theme.styles.fontFamily};
 `;
