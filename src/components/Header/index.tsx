@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyledHeader, Title, Actions } from './styled';
+import { StyledHeader, Title, Actions, ColorSwitcher, SubActions } from './styled';
 class Header extends React.PureComponent {
   render() {
     return (
@@ -8,8 +8,18 @@ class Header extends React.PureComponent {
             Path of Exile auction house
           </Title>
           <Actions>
-            Currency market
+            currency market →
           </Actions>
+          <SubActions>
+            Theme:
+            <ColorSwitcher>
+              Dark
+            </ColorSwitcher>
+            /
+            <ColorSwitcher>
+              Light
+            </ColorSwitcher>
+          </SubActions>
         </StyledHeader>
     );
   }

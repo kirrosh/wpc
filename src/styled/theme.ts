@@ -9,9 +9,13 @@ export default {
       default: '#302E2E',
     },
     text: {
-      primary: '#a38d6d',
-      secondary: '#DCD3C3',
+      primary: '#DCD3C3',
+      secondary: '#a38d6d',
       reversed: '#222222',
+    },
+    link: {
+      primary: '#a38d6d',
+      hovered: '#ffffff',
     },
   },
   styles: {
