@@ -4,7 +4,7 @@
 
 import * as styledComponents from 'styled-components';
 
-import theme  from './theme';
+import theme  from './darkTheme';
 const {
   default: styled,
   css,

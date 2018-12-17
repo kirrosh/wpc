@@ -4,14 +4,13 @@ import HomePage from 'pages/Home';
 import { connect } from 'react-redux';
 import { ApplicationState } from 'store';
 import { ThemeProvider } from 'styled';
-import theme from 'styled/theme';
+import { themeSelector } from 'store/layout/selectors';
 
 type TProps = ReturnType<typeof mapStateToProps>;
 class App extends React.PureComponent<TProps> {
   render() {
-    console.log(this.props);
     return (
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={this.props.theme}>
         <HashRouter>
           <Route path={'/'} component={HomePage}/>
         </HashRouter>
@@ -21,7 +20,7 @@ class App extends React.PureComponent<TProps> {
 }
 
 const mapStateToProps = (store: ApplicationState) => ({
-  themeVariant: store.layout.theme,
+  theme: themeSelector(store),
 });
 
 export default connect(mapStateToProps)(App);
