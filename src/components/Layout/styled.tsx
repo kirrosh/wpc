@@ -8,10 +8,15 @@ export const StyledLayout = styled.div`
 `;
 
 export const LayoutContent = styled.div`
-  grid-column-start: 3;
-  grid-column-end: 4;
+  max-width: 1000px;
+  margin: 0 auto;
   background-color: ${({ theme }) => theme.colors.background.primary};
   border: ${({ theme }) => theme.styles.border};
   color: ${({ theme }) => theme.colors.text.primary};
   font-family: ${({ theme }) => theme.styles.fontFamily};
+`;
+
+export const ContentWrapper = styled.div`
+  grid-column-start: 3;
+  grid-column-end: 4;
 `;

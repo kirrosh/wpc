@@ -1,7 +1,7 @@
 export default {
   colors: {
     background: {
-      body: 'white',
+      body: '#FFFFFF',
       primary: '#F3F3F3',
       reversed: '#DCD3C3',
     },
@@ -10,12 +10,12 @@ export default {
     },
     text: {
       primary: '#DCD3C3',
-      secondary: '#a38d6d',
+      secondary: '#A38D6D',
       reversed: '#222222',
     },
     link: {
-      primary: '#a38d6d',
-      hovered: '#ffffff',
+      primary: '#A38D6D',
+      hovered: '#FFFFFF',
     },
   },
   styles: {
