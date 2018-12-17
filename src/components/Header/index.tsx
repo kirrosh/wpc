@@ -1,6 +1,19 @@
 import * as React from 'react';
+import { connect } from 'react-redux';
 import { StyledHeader, Title, Actions, ColorSwitcher, SubActions } from './styled';
-class Header extends React.PureComponent {
+import { switchTheme } from 'store/layout/actions';
+import { HeaderProps } from './types';
+
+type AllProps = HeaderProps
+  & typeof mapDispatchToProps;
+
+class Header extends React.PureComponent<AllProps> {
+  onColorSwitcherLightClick = () => {
+    this.props.switchTheme('light');
+  }
+  onColorSwitcherDarkClick = () => {
+    this.props.switchTheme('dark');
+  }
   render() {
     return (
         <StyledHeader>
@@ -12,11 +25,11 @@ class Header extends React.PureComponent {
           </Actions>
           <SubActions>
             Theme:
-            <ColorSwitcher>
+            <ColorSwitcher onClick={this.onColorSwitcherDarkClick}>
               Dark
             </ColorSwitcher>
             /
-            <ColorSwitcher>
+            <ColorSwitcher onClick={this.onColorSwitcherLightClick}>
               Light
             </ColorSwitcher>
           </SubActions>
@@ -25,4 +38,8 @@ class Header extends React.PureComponent {
   }
 }
 
-export default Header;
+const mapDispatchToProps = {
+  switchTheme,
+};
+
+export default connect(null, mapDispatchToProps)(Header);

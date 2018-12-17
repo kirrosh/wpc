@@ -14,7 +14,7 @@ const initialState: LayoutState = {
 const reducer: Reducer<LayoutState, LayoutAction> = (state = initialState, action) => {
   switch (action.type) {
     case LayoutActionTypes.SWITCH_THEME: {
-      return { ...state, loading: action.payload };
+      return { ...state, theme: action.payload };
     }
     default: {
       return state;
