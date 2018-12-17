@@ -1,8 +1,8 @@
 export default {
   colors: {
     background: {
-      black: 'black',
-      dark: '#0F0F0F',
+      body: 'black',
+      primary: '#0F0F0F',
       reversed: '#DCD3C3',
     },
     border: {
