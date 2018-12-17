@@ -1,6 +1,7 @@
 import { combineReducers, createStore } from 'redux';
 import { layoutReducer } from './layout/reducer';
 import { LayoutState } from './layout/types';
+import { Connect, connect } from 'react-redux';
 
 // The top-level state object.
 //
