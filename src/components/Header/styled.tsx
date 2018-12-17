@@ -1,4 +1,4 @@
-import styled, { css } from 'styled';
+import styled from 'styled';
 
 export const StyledHeader = styled.div`
   height: 100px;
@@ -7,6 +7,7 @@ export const StyledHeader = styled.div`
   margin-top: 26px;
   grid-template-columns: auto 1fr auto;
   grid-template-rows: 56px 36px;
+  border-bottom: ${({ theme }) => theme.styles.border};
   grid-template-areas: 'title x actions'
                        'subtitle x subActions';
 `;

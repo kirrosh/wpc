@@ -14,5 +14,7 @@ const {
 
 type ThemedStyledProps<P> = styledComponents.ThemedStyledProps<P, typeof theme>;
 
-export { css, keyframes, ThemeProvider, ThemedStyledProps };
+type ThemeVariant = 'light' | 'dark';
+
+export { css, keyframes, ThemeProvider, ThemedStyledProps, ThemeVariant };
 export default styled;
