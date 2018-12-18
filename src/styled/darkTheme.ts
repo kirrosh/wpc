@@ -22,4 +22,10 @@ export default {
     border: '1px solid #302E2E',
     fontFamily: '"Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif',
   },
+  select: {
+    background: 'linear-gradient(to bottom,#383838 0,#111 100%)',
+    withValueBorder: '1px solid green',
+    border: '1px solid #4B4B4B',
+    color: '#BEB698',
+  }
 };
