@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { StyledForm } from './styled';
 import Select from 'common/Select';
+import FormItem from './FormItem';
 
 
 const options = [
@@ -13,11 +14,27 @@ class Form extends React.PureComponent {
   render() {
     return (
       <StyledForm>
-        <Select
-          value={options[0]}
-          // onChange={console.log}
-          options={options}
-        />
+        <FormItem label={'League'} gridArea={'league'}>
+          <Select
+            value={options[0]}
+            // onChange={console.log}
+            options={options}
+          />
+        </FormItem>
+        <FormItem label={'Type'} gridArea={'type'}>
+          <Select
+            value={options[0]}
+            // onChange={console.log}
+            options={options}
+          />
+        </FormItem>
+        <FormItem label={'Base'} gridArea={'base'}>
+          <Select
+            value={options[0]}
+            // onChange={console.log}
+            options={options}
+          />
+        </FormItem>
       </StyledForm>
     );
   }

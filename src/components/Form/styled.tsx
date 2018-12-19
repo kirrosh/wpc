@@ -1,7 +1,8 @@
 import styled from 'styled';
 
 export const StyledForm = styled.div`
-  width: 100%;
   display: grid;
-  grid-template-columns: auto auto auto;
+  padding: 20px 30px 0 16px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "league type base";
 `;

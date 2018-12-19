@@ -5,4 +5,4 @@ export type SelectProps<T> = {}
 
 export type StyledSelectProps = {
   withValue?: boolean;
-}
+};

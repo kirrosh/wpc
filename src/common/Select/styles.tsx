@@ -6,6 +6,7 @@ export const StyledSelect = styled.div<StyledSelectProps>`
     background: ${({ theme }) => theme.select.background};
     border: ${({ theme, withValue }) => withValue ? theme.select.withValueBorder : theme.select.border};
     height: 2.3125em;
+    min-height: 2.3125em;
     border-radius: 0;
   }
 
@@ -14,7 +15,7 @@ export const StyledSelect = styled.div<StyledSelectProps>`
     line-height: 2.25em;
     color: ${({ theme }) => theme.select.color};
   }
-  
+
   .react-select__indicator-separator {
     background-color: ${({ theme }) => theme.select.color};
   }
@@ -29,7 +30,7 @@ export const StyledSelect = styled.div<StyledSelectProps>`
     color: ${({ theme }) => theme.select.color};
     border-radius: 0;
   }
-  
+
   .react-select__option--is-focused {
     color: ${({ theme }) => theme.colors.link.hovered};
     background-color: ${({ theme }) => theme.colors.background.body};
