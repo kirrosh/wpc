@@ -8,6 +8,7 @@ export const StyledSelect = styled.div<StyledSelectProps>`
     height: 2.3125em;
     min-height: 2.3125em;
     border-radius: 0;
+    box-shadow: none;
   }
 
   .react-select__single-value {
@@ -17,7 +18,7 @@ export const StyledSelect = styled.div<StyledSelectProps>`
   }
 
   .react-select__indicator-separator {
-    background-color: ${({ theme }) => theme.select.color};
+    display: none;
   }
 
   .react-select__dropdown-indicator {

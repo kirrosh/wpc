@@ -2,6 +2,7 @@ import * as React from 'react';
 import { StyledForm } from './styled';
 import Select from 'common/Select';
 import FormItem from './FormItem';
+import Input from 'common/Input';
 
 
 const options = [
@@ -33,6 +34,13 @@ class Form extends React.PureComponent {
             value={options[0]}
             // onChange={console.log}
             options={options}
+          />
+        </FormItem>
+        <FormItem label={'Name'} gridArea={'name'}>
+          <Input
+            // value={options[0]}
+            // onChange={console.log}
+            // options={options}
           />
         </FormItem>
       </StyledForm>
