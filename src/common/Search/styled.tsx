@@ -19,7 +19,19 @@ export const StyledSearchOption = styled.div`
   height: 32px;
   display: flex;
   align-items: center;
+  line-height: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  color: ${({ theme }) => theme.colors.text.secondary};
   &:hover {
     background-color: ${({ theme }) => theme.colors.background.body};
   }
+`;
+
+export const MatchedString = styled.h3`
+  font-weight: bold;
+  padding-bottom: 1px;
+  line-height: 20px;
+  font-size: 16px;
+  color: ${({ theme }) => theme.colors.text.secondary};
 `;

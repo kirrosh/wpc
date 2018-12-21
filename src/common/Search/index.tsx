@@ -23,13 +23,16 @@ class Search extends React.PureComponent<SearchProps, SearchState> {
   }
 
   renderOptions = () => {
-    const { options } = this.props;
-    const optionComponents = options.map(option => (
-      <SearchOption
-        key={option.id}
-        {...option}
-        onClick={this.onOptionClick}
-      />));
+    const { options, value } = this.props;
+    const optionComponents = options
+      .filter(option => option.name.toLowerCase().includes(value.toLowerCase()))
+      .map(option => (
+        <SearchOption
+          value={value}
+          key={option.id}
+          {...option}
+          onClick={this.onOptionClick}
+        />));
 
     return (
       <SearchOptions>

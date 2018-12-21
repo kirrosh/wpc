@@ -2,14 +2,15 @@ import { InputProps } from 'common/Input/types';
 
 export type SearchOptionProps = {
   onClick: (id: string, name: string) => void;
-} & SearchOption;
+  value: string;
+} & SearchOptionType;
 
-type SearchOption = {
+export type SearchOptionType = {
   id: string;
   name: string;
 };
 
-export type SearchProps<T extends SearchOption = SearchOption> = {
+export type SearchProps<T extends SearchOptionType = SearchOptionType> = {
   options: T[];
 } & InputProps;
 
