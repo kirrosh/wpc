@@ -3,10 +3,14 @@ import { StyledInput } from './styled';
 import { InputProps } from './types';
 
 class Input extends React.PureComponent<InputProps> {
+  onChange = (e: React.FormEvent<HTMLInputElement>) => {
+    const { onChange } = this.props;
+    onChange(e.currentTarget.value, e);
+  }
   render() {
-    const { onChange, value } = this.props;
+    const { value } = this.props;
     return (
-      <StyledInput value={value}/>
+      <StyledInput value={value} onChange={this.onChange} />
     );
   }
 }

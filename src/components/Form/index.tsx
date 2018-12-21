@@ -3,6 +3,8 @@ import { StyledForm } from './styled';
 import Select from 'common/Select';
 import FormItem from './FormItem';
 import Input from 'common/Input';
+import Search from 'common/Search';
+import { FormState } from './types';
 
 
 const options = [
@@ -10,8 +12,19 @@ const options = [
   { value: 'strawberry', label: 'Strawberry' },
   { value: 'vanilla', label: 'Vanilla' },
 ];
+const searchOptions = [
+  { id: 'chocolate', name: 'Chocolate' },
+  { id: 'strawberry', name: 'Strawberry' },
+  { id: 'vanilla', name: 'Vanilla' },
+];
 
-class Form extends React.PureComponent {
+class Form extends React.PureComponent<{}, FormState> {
+  state = {
+    name: '',
+  };
+
+  onNameChange = (name: string) => this.setState({ name });
+
   render() {
     return (
       <StyledForm>
@@ -37,10 +50,10 @@ class Form extends React.PureComponent {
           />
         </FormItem>
         <FormItem label={'Name'} gridArea={'name'}>
-          <Input
-            // value={options[0]}
-            // onChange={console.log}
-            // options={options}
+          <Search
+            value={this.state.name}
+            onChange={this.onNameChange}
+            options={searchOptions}
           />
         </FormItem>
       </StyledForm>
