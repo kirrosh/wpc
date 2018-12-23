@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyledForm } from './styled';
+import { StyledForm, FormHeader } from './styled';
 import Select from 'common/Select';
 import FormItem from './FormItem';
 import Input from 'common/Input';
@@ -56,6 +56,9 @@ class Form extends React.PureComponent<{}, FormState> {
             options={searchOptions}
           />
         </FormItem>
+        <FormHeader>
+          Offense
+        </FormHeader>
       </StyledForm>
     );
   }

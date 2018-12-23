@@ -25,6 +25,7 @@
       // "missing-jsdoc": false,
       // "quotemark": [true, "single", "jsx-double"],
       // "no-import-side-effect": true,
+    "jsx-wrap-multiline": false,
     "no-trailing-whitespace": true,
     "no-consecutive-blank-lines": [true, 2],
     "max-line-length": [true, 200],

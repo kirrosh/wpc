@@ -10,3 +10,10 @@ export const StyledForm = styled.div`
     "name name name"
   ;
 `;
+
+export const FormHeader = styled.div`
+  font-size: 1.125em;
+  padding: 0 8px;
+  font-weight: bold;
+  color: ${({ theme }) => theme.colors.text.primary};
+`;

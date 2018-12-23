@@ -34,15 +34,17 @@ class Search extends React.PureComponent<SearchProps, SearchState> {
           onClick={this.onOptionClick}
         />));
 
-    return (
+    return (optionComponents.length ?
       <SearchOptions>
         {optionComponents}
       </SearchOptions>
+      :
+      null
     );
   }
 
   render() {
-    const { onChange, value } = this.props;
+    const { value } = this.props;
     return (
       <StyledSearch>
         <Input onChange={this.onSearchValueChange} value={value}/>
