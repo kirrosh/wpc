@@ -8,6 +8,8 @@ export const StyledForm = styled.div`
   grid-template-areas:
     "league type base"
     "name name name"
+    ". . ."
+    "damage . ."
   ;
 `;
 

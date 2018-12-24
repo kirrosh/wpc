@@ -8,9 +8,9 @@ class Input extends React.PureComponent<InputProps> {
     onChange(e.currentTarget.value, e);
   }
   render() {
-    const { value } = this.props;
+    const { value, className, placeholder } = this.props;
     return (
-      <StyledInput value={value} onChange={this.onChange} />
+      <StyledInput value={value} onChange={this.onChange} className={className} placeholder={placeholder}/>
     );
   }
 }

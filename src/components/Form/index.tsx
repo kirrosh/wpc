@@ -2,9 +2,10 @@ import * as React from 'react';
 import { StyledForm, FormHeader } from './styled';
 import Select from 'common/Select';
 import FormItem from './FormItem';
-import Input from 'common/Input';
 import Search from 'common/Search';
 import { FormState } from './types';
+import MinMax from 'common/MinMax';
+import { MinMaxValues } from 'common/MinMax/types';
 
 
 const options = [
@@ -19,11 +20,21 @@ const searchOptions = [
 ];
 
 class Form extends React.PureComponent<{}, FormState> {
-  state = {
+  state: FormState = {
     name: '',
+    damage: {
+      min: '',
+      max: '',
+    },
   };
 
   onNameChange = (name: string) => this.setState({ name });
+
+  onDamageChange = (damage: MinMaxValues) => {
+    this.setState({
+      damage,
+    });
+  }
 
   render() {
     return (
@@ -59,6 +70,9 @@ class Form extends React.PureComponent<{}, FormState> {
         <FormHeader>
           Offense
         </FormHeader>
+        <FormItem label={'Damage'} gridArea={'damage'}>
+          <MinMax value={this.state.damage} onChange={this.onDamageChange}/>
+        </FormItem>
       </StyledForm>
     );
   }
