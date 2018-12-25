@@ -1,10 +1,9 @@
 import * as React from 'react';
-import { StyledForm, FormHeader } from './styled';
+import { StyledMainForm } from './styled';
 import Select from 'common/Select';
 import FormItem from './FormItem';
 import Search from 'common/Search';
 import { FormState } from './types';
-import MinMax from 'common/MinMax';
 import { MinMaxValues } from 'common/MinMax/types';
 
 
@@ -13,13 +12,8 @@ const options = [
   { value: 'strawberry', label: 'Strawberry' },
   { value: 'vanilla', label: 'Vanilla' },
 ];
-const searchOptions = [
-  { id: 'chocolate', name: 'Chocolate' },
-  { id: 'strawberry', name: 'Strawberry' },
-  { id: 'vanilla', name: 'Vanilla' },
-];
 
-class Form extends React.PureComponent<{}, FormState> {
+class MainForm extends React.PureComponent<{}, FormState> {
   state: FormState = {
     name: '',
     damage: {
@@ -38,7 +32,7 @@ class Form extends React.PureComponent<{}, FormState> {
 
   render() {
     return (
-      <StyledForm>
+      <StyledMainForm>
         <FormItem label={'League'} gridArea={'league'}>
           <Select
             value={options[0]}
@@ -64,18 +58,12 @@ class Form extends React.PureComponent<{}, FormState> {
           <Search
             value={this.state.name}
             onChange={this.onNameChange}
-            options={searchOptions}
+            options={options}
           />
         </FormItem>
-        <FormHeader>
-          Offense
-        </FormHeader>
-        <FormItem label={'Damage'} gridArea={'damage'}>
-          <MinMax value={this.state.damage} onChange={this.onDamageChange}/>
-        </FormItem>
-      </StyledForm>
+      </StyledMainForm>
     );
   }
 }
 
-export default Form;
+export default MainForm;

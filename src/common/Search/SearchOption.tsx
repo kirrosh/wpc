@@ -4,29 +4,28 @@ import { StyledSearchOption, MatchedString } from './styled';
 
 class SearchOption extends React.PureComponent<SearchOptionProps> {
   onClick = () => {
-    const { id, name, onClick } = this.props;
-    onClick(id, name);
+    const { value, label, onClick } = this.props;
+    onClick(value, label);
   }
 
   formatLabel = () => {
-    const { id, name, value } = this.props;
-    if (value) {
-      const startIndex = name.toLowerCase().indexOf(value.toLowerCase());
+    const { label, inputValue } = this.props;
+    if (inputValue) {
+      const startIndex = label.toLowerCase().indexOf(inputValue.toLowerCase());
       if (startIndex > -1) {
         return (
         <>
-          {name.substring(0, startIndex)}
-          <MatchedString>{name.substring(startIndex, value.length + startIndex)}</MatchedString>
-          {name.substring(startIndex + value.length)}
+          {label.substring(0, startIndex)}
+          <MatchedString>{label.substring(startIndex, inputValue.length + startIndex)}</MatchedString>
+          {label.substring(startIndex + inputValue.length)}
         </>);
       }
-      return name;
+      return label;
     }
-    return name;
+    return label;
   }
 
   render() {
-    const { id, name, value } = this.props;
     return (
       <StyledSearchOption onClick={this.onClick}>
         {this.formatLabel()}
