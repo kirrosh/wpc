@@ -4,6 +4,8 @@ import FormItem from './FormItem';
 import { FormState } from './types';
 import { MinMaxValues } from 'common/MinMax/types';
 import MinMax from 'common/MinMax';
+import SocketColors from 'common/SocketColors';
+import { SocketColorsValues } from 'common/SocketColors/types';
 
 class SocketsForm extends React.PureComponent<{}, FormState> {
   state: FormState = {
@@ -11,6 +13,12 @@ class SocketsForm extends React.PureComponent<{}, FormState> {
     damage: {
       min: '',
       max: '',
+    },
+    sockets: {
+      blue: '',
+      green: '',
+      red: '',
+      white: '',
     },
   };
 
@@ -22,7 +30,19 @@ class SocketsForm extends React.PureComponent<{}, FormState> {
     });
   }
 
+  onSocketsChange = (sockets: SocketColorsValues) => {
+    this.setState({
+      sockets,
+    });
+  }
+
   render() {
+    const sockets = {
+      blue: '',
+      green: '',
+      red: '',
+      white: '',
+    };
     return (
       <StyledSocketsForm>
         <FormHeader>
@@ -33,6 +53,12 @@ class SocketsForm extends React.PureComponent<{}, FormState> {
         </FormItem>
         <FormItem label={'Links'} gridArea={'links'}>
           <MinMax value={this.state.damage} onChange={this.onDamageChange}/>
+        </FormItem>
+        <FormItem label={'Colors'} gridArea={'colors'}>
+          <SocketColors value={sockets} onChange={this.onSocketsChange}/>
+        </FormItem>
+        <FormItem label={'Linked'} gridArea={'linked'}>
+          <SocketColors value={sockets} onChange={this.onSocketsChange}/>
         </FormItem>
       </StyledSocketsForm>
     );
