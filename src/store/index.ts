@@ -1,6 +1,7 @@
 import { combineReducers, createStore } from 'redux';
 import { layoutReducer } from './layout/reducer';
 import { ReducerState } from 'types/helpers';
+import searchFiltersReducer from './searchFilters/reducer';
 
 // The top-level state object.
 //
@@ -8,6 +9,7 @@ import { ReducerState } from 'types/helpers';
 // so we can ignore them here.
 const reducerObject = {
   layout: layoutReducer,
+  searchFilters: searchFiltersReducer,
 };
 
 // Whenever an action is dispatched, Redux will update each top-level application state property

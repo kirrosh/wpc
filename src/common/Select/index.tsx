@@ -1,15 +1,15 @@
 import * as React from 'react';
 import ReactSelect from 'react-select';
-import { SelectProps } from './types';
+import { SelectProps, OptionType } from './types';
 import { StyledSelect } from './styles';
 
 const NO_OPTIONS_MESSAGE = 'No results match';
-class Select<OptionType = { label: string; value: string }> extends React.PureComponent<SelectProps<OptionType>> {
+class Select<T = OptionType> extends React.PureComponent<SelectProps<T>> {
   noOptionsMessage = (obj: { inputValue: string }) => `${NO_OPTIONS_MESSAGE} "${obj.inputValue}"`;
   render() {
     return(
       <StyledSelect>
-        <ReactSelect
+        <ReactSelect<T>
           isSearchable={true}
           noOptionsMessage={this.noOptionsMessage}
           {...this.props}

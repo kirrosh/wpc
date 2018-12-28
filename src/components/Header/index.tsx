@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import { StyledHeader, Title, Actions, ColorSwitcher, SubActions } from './styled';
 import { switchTheme } from 'store/layout/actions';
 import { HeaderProps } from './types';
-import { DispatchPropsSignature } from 'types/helpers';
+import { DispatchProps } from 'types/helpers';
 
 type AllProps = HeaderProps
-  & DispatchPropsSignature<typeof mapDispatchToProps>;
+  & DispatchProps<typeof mapDispatchToProps>;
 
 export class Header extends React.PureComponent<AllProps> {
   onColorSwitcherLightClick = () => {

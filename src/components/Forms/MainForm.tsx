@@ -3,9 +3,12 @@ import { StyledMainForm } from './styled';
 import Select from 'common/Select';
 import FormItem from './FormItem';
 import Search from 'common/Search';
-import { FormState } from './types';
-import { MinMaxValues } from 'common/MinMax/types';
-
+import { connect } from 'react-redux';
+import { setOptionValue, setStringValue } from 'store/searchFilters/actions';
+import { ApplicationState } from 'store';
+import { mainFormSelector } from 'store/searchFilters/selectors';
+import { DispatchProps, StateProps } from 'types/helpers';
+import { OptionType } from 'common/Select/types';
 
 const options = [
   { value: 'chocolate', label: 'Chocolate' },
@@ -13,50 +16,45 @@ const options = [
   { value: 'vanilla', label: 'Vanilla' },
 ];
 
-class MainForm extends React.PureComponent<{}, FormState> {
-  state: FormState = {
-    name: '',
-    damage: {
-      min: '',
-      max: '',
-    },
-  };
+type MainFormProps = { }
+ & DispatchProps<typeof mapDispatchToProps>
+ & StateProps<typeof mapStateToProps>;
 
-  onNameChange = (name: string) => this.setState({ name });
+class MainForm extends React.PureComponent<MainFormProps> {
 
-  onDamageChange = (damage: MinMaxValues) => {
-    this.setState({
-      damage,
-    });
-  }
+  onNameChange = (value: string) => this.props.setStringValue('name', value);
+  onLeagueChange = (value: OptionType) => this.props.setOptionValue('league', value);
+  onTypeChange = (value: OptionType) => this.props.setOptionValue('type', value);
+  onBaseChange = (value: OptionType) => this.props.setOptionValue('base', value);
 
   render() {
+    const { league, base, type, name } = this.props;
     return (
       <StyledMainForm>
         <FormItem label={'League'} gridArea={'league'}>
           <Select
-            value={options[0]}
-            // onChange={console.log}
+            value={league}
+            onChange={this.onLeagueChange}
             options={options}
           />
         </FormItem>
         <FormItem label={'Type'} gridArea={'type'}>
           <Select
-            value={options[0]}
-            // onChange={console.log}
+            value={type}
+            onChange={this.onTypeChange}
             options={options}
           />
         </FormItem>
         <FormItem label={'Base'} gridArea={'base'}>
           <Select
-            value={options[0]}
-            // onChange={console.log}
+            value={base}
+            onChange={this.onBaseChange}
             options={options}
           />
         </FormItem>
         <FormItem label={'Name'} gridArea={'name'}>
           <Search
-            value={this.state.name}
+            value={name}
             onChange={this.onNameChange}
             options={options}
           />
@@ -65,5 +63,12 @@ class MainForm extends React.PureComponent<{}, FormState> {
     );
   }
 }
+const mapStateToProps = (state: ApplicationState) => ({
+  ...mainFormSelector(state),
+});
+const mapDispatchToProps = {
+  setOptionValue,
+  setStringValue,
+};
 
-export default MainForm;
+export default connect(mapStateToProps, mapDispatchToProps)(MainForm);
