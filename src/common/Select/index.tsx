@@ -1,7 +1,7 @@
 import * as React from 'react';
 import ReactSelect from 'react-select';
 import { SelectProps, OptionType } from './types';
-import { StyledSelect } from './styles';
+import { StyledSelect } from './styled';
 
 const NO_OPTIONS_MESSAGE = 'No results match';
 class Select<T = OptionType> extends React.PureComponent<SelectProps<T>> {
