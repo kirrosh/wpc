@@ -12,10 +12,14 @@ export default {
       primary: '#DCD3C3',
       secondary: '#A38D6D',
       reversed: '#222222',
+      button: '#FFFFFF',
     },
     link: {
       primary: '#A38D6D',
       hovered: '#FFFFFF',
+    },
+    button: {
+      primary: '#232320',
     },
   },
   styles: {
@@ -27,5 +31,5 @@ export default {
     withValueBorder: '1px solid green',
     border: '1px solid #4B4B4B',
     color: '#BEB698',
-  }
+  },
 };

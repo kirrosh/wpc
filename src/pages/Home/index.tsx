@@ -7,6 +7,7 @@ import OffenseForm from 'components/Forms/OffenseForm';
 import DefenseForm from 'components/Forms/DefenseForm';
 import SocketsForm from 'components/Forms/SocketsForm';
 import RequirementsForm from 'components/Forms/RequirementsForm';
+import ModsForm from 'components/Forms/ModsForm';
 
 class HomePage extends React.PureComponent {
   render() {
@@ -19,6 +20,7 @@ class HomePage extends React.PureComponent {
         <DefenseForm/>
         <SocketsForm/>
         <RequirementsForm/>
+        <ModsForm/>
       </StyledHome>
     </Layout>
     );
