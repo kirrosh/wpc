@@ -5,3 +5,7 @@
 declare module '*.ttf';
 declare module '*.woff';
 declare module '*.eot';
+
+interface Window {
+    __REDUX_DEVTOOLS_EXTENSION__: any;
+}

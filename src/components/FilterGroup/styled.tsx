@@ -10,13 +10,13 @@ export const StyledFilterGroupMode = styled.div`
 `;
 
 export const StyledFilterGroup = styled.div`
-  /* display: grid;
+  display: grid;
   grid-row-gap: 14px;
   grid-template-areas:
     "mode mode mode"
     ". addBtn ."
     " ."
-  ; */
+  ;
 `;
 
 // export const StyledFilterGroupMode = styled.div`

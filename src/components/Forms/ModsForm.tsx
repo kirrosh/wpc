@@ -1,10 +1,8 @@
 import * as React from 'react';
 import { StyledModsForm, FormHeader } from './styled';
-import FormItem from './FormItem';
 import { FormState } from './types';
 import { MinMaxValues } from 'common/MinMax/types';
-import MinMax from 'common/MinMax';
-import FilterGroupMode from 'components/FilterGroup/FilterGroupMode';
+import FilterGroup from 'components/FilterGroup';
 
 class ModsForm extends React.PureComponent<{}, FormState> {
   state: FormState = {
@@ -29,7 +27,7 @@ class ModsForm extends React.PureComponent<{}, FormState> {
         <FormHeader>
           Mods
         </FormHeader>
-        <FilterGroupMode/>
+        <FilterGroup/>
       </StyledModsForm>
     );
   }
