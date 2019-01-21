@@ -3,8 +3,13 @@ import { StyledModsForm, FormHeader } from './styled';
 import { FormState } from './types';
 import { MinMaxValues } from 'common/MinMax/types';
 import FilterGroup from 'components/FilterGroup';
+import { connect } from 'react-redux';
+import { ApplicationState } from 'store';
+import { StateProps } from 'types/helpers';
 
-class ModsForm extends React.PureComponent<{}, FormState> {
+type Props = {}
+& StateProps<typeof mapStateToProps>;
+class ModsForm extends React.PureComponent<Props, FormState> {
   state: FormState = {
     name: '',
     damage: {
@@ -13,12 +18,15 @@ class ModsForm extends React.PureComponent<{}, FormState> {
     },
   };
 
-  onNameChange = (name: string) => this.setState({ name });
-
-  onDamageChange = (damage: MinMaxValues) => {
-    this.setState({
-      damage,
-    });
+  renderModes = () => {
+    const { dynamicModes } = this.props;
+    return Object.keys(dynamicModes).map(key =>
+      <FilterGroup
+        groupData={dynamicModes[key]}
+        groupId={key}
+        key={key}
+      />,
+    );
   }
 
   render() {
@@ -27,10 +35,14 @@ class ModsForm extends React.PureComponent<{}, FormState> {
         <FormHeader>
           Mods
         </FormHeader>
-        <FilterGroup/>
+        {this.renderModes()}
       </StyledModsForm>
     );
   }
 }
 
-export default ModsForm;
+const mapStateToProps = (state: ApplicationState) => ({
+  dynamicModes: state.dynamicModes,
+});
+
+export default connect(mapStateToProps)(ModsForm);

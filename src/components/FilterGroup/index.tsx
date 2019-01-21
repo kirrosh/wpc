@@ -2,29 +2,58 @@ import * as React from 'react';
 import FilterGroupMode from './FilterGroupMode';
 import { StyledFilterGroup } from './styled';
 import Button from 'common/Button';
-import { injectDynamicModeReducer } from 'store';
+import { connect } from 'react-redux';
+import { ApplicationState } from 'store';
+import { addMode, removeMode, setModeValues } from 'store/dynamicModes/actions';
+import { DynamicModeGroup, DynamicMode } from 'store/dynamicModes/types';
 
-class FilterGroup extends React.PureComponent {
+type Props = {
+  groupId: string;
+  groupData: DynamicModeGroup;
+} & typeof mapDispatchToProps;
+
+class FilterGroup extends React.PureComponent<Props> {
   addMode = (e: any) => {
-    console.log(e);
-    const a = injectDynamicModeReducer('wer');
-    debugger;
+    const { addMode, groupId } = this.props;
+    addMode(groupId);
+  }
+  onModeRemove = (modeId: string) => {
+    const { removeMode, groupId } = this.props;
+    removeMode({ groupId, modeId });
+  }
+  onModeValuesChange = (modeId: string, value: DynamicMode) => {
+    const { groupId, setModeValues } = this.props;
+    setModeValues({ groupId, modeId, value });
+  }
+  renderModes = () => {
+    const { modes } = this.props.groupData;
+    return Object.keys(modes).map(key =>
+      <FilterGroupMode
+        key={key}
+        modeId={key}
+        modeValues={modes[key]}
+        onModeRemove={this.onModeRemove}
+        onModeValuesChange={this.onModeValuesChange}
+      />,
+    );
   }
   render() {
-    const mm = {
-      min: '',
-      max: '',
-    };
     return(
       <StyledFilterGroup>
-        <FilterGroupMode
-          modeName={''}
-          modeValues={mm}
-        />
+        {this.renderModes()}
         <Button text={'Add'} onClick={this.addMode}/>
       </StyledFilterGroup>
     );
   }
 }
 
-export default FilterGroup;
+const mapDispatchToProps = {
+  addMode,
+  removeMode,
+  setModeValues,
+};
+
+export default connect(
+  null,
+  mapDispatchToProps,
+)(FilterGroup);

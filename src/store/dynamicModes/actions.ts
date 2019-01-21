@@ -1,12 +1,18 @@
-import { OptionType } from 'common/Select/types';
 import { action } from 'typesafe-actions';
-import { MinMaxValues } from 'common/MinMax/types';
-import { DynamicModesActionTypes } from './types';
+import { DynamicModesActionTypes, DynamicMode } from './types';
 
-export const setModeName = (value: string) => {
-  return action(DynamicModesActionTypes.CHANGE_MODE_NAME, value);
+export const setModeValues = (payload: {groupId: string; modeId: string; value: DynamicMode}) => {
+  return action(DynamicModesActionTypes.CHANGE_MODE_VALUES, payload);
 };
 
-export const setModeValue = (value: MinMaxValues) => {
-  return action(DynamicModesActionTypes.CHANGE_MODE_VALUES, value);
+export const addModeGroup = () => {
+  return action(DynamicModesActionTypes.ADD_MODE_GROUP);
+};
+
+export const addMode = (groupId: string) => {
+  return action(DynamicModesActionTypes.ADD_MODE, groupId);
+};
+
+export const removeMode = (payload: {groupId: string; modeId: string}) => {
+  return action(DynamicModesActionTypes.REMOVE_MODE, payload);
 };
