@@ -2,7 +2,7 @@ import { combineReducers, createStore, Store, ReducersMapObject, Reducer } from 
 import { layoutReducer } from './layout/reducer';
 import { ReducerState } from 'types/helpers';
 import searchFiltersReducer from './searchFilters/reducer';
-import { dynamicModesReducer } from './dynamicModes/reducer';
+import { dynamicModeGroupsReducer } from './dynamicModeGroups/reducer';
 
 // The top-level state object.
 //
@@ -11,7 +11,7 @@ import { dynamicModesReducer } from './dynamicModes/reducer';
 const reducerObject = {
   layout: layoutReducer,
   searchFilters: searchFiltersReducer,
-  dynamicModes: dynamicModesReducer,
+  dynamicModeGroups: dynamicModeGroupsReducer,
 };
 
 // Whenever an action is dispatched, Redux will update each top-level application state property

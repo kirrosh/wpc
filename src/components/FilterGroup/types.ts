@@ -1,5 +1,4 @@
-import { MinMaxValues } from 'common/MinMax/types';
-import { DynamicMode } from 'store/dynamicModes/types';
+import { DynamicMode } from 'store/dynamicModeGroups/types';
 
 export type FilterGroupModeProps = {
   modeValues: DynamicMode;

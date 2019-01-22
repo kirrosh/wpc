@@ -3,9 +3,8 @@ import FilterGroupMode from './FilterGroupMode';
 import { StyledFilterGroup } from './styled';
 import Button from 'common/Button';
 import { connect } from 'react-redux';
-import { ApplicationState } from 'store';
-import { addMode, removeMode, setModeValues } from 'store/dynamicModes/actions';
-import { DynamicModeGroup, DynamicMode } from 'store/dynamicModes/types';
+import { addMode, removeMode, setModeValues } from 'store/dynamicModeGroups/actions';
+import { DynamicModeGroup, DynamicMode } from 'store/dynamicModeGroups/types';
 
 type Props = {
   groupId: string;
@@ -17,14 +16,17 @@ class FilterGroup extends React.PureComponent<Props> {
     const { addMode, groupId } = this.props;
     addMode(groupId);
   }
+
   onModeRemove = (modeId: string) => {
     const { removeMode, groupId } = this.props;
     removeMode({ groupId, modeId });
   }
+
   onModeValuesChange = (modeId: string, value: DynamicMode) => {
     const { groupId, setModeValues } = this.props;
     setModeValues({ groupId, modeId, value });
   }
+
   renderModes = () => {
     const { modes } = this.props.groupData;
     return Object.keys(modes).map(key =>
@@ -37,6 +39,7 @@ class FilterGroup extends React.PureComponent<Props> {
       />,
     );
   }
+
   render() {
     return(
       <StyledFilterGroup>

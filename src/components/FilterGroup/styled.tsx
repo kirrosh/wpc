@@ -1,4 +1,5 @@
 import styled, { css } from 'styled';
+import Button from 'common/Button';
 
 export const StyledFilterGroupMode = styled.div`
   display: grid;
@@ -19,6 +20,3 @@ export const StyledFilterGroup = styled.div`
   ;
 `;
 
-// export const StyledFilterGroupMode = styled.div`
-//   ${gridMixin}
-// `;
