@@ -6,8 +6,6 @@ const initialState: DynamicModesState = {
   ...createNewModeGroup(),
 };
 
-// Thanks to Redux 4's much simpler typings, we can take away a lot of typings on the reducer side,
-// everything will remain type-safe.
 const reducer: Reducer<DynamicModesState, DynamicModesAction> = (state = initialState, action) => {
   switch (action.type) {
     case DynamicModesActionTypes.CHANGE_MODE_VALUES: {
@@ -50,12 +48,15 @@ const reducer: Reducer<DynamicModesState, DynamicModesAction> = (state = initial
         [groupId]: group,
       };
     }
+    case DynamicModesActionTypes.REMOVE_MODE_GROUP: {
+      const groups = { ...state };
+      delete groups[action.payload];
+      return groups;
+    }
     default: {
       return state;
     }
   }
 };
 
-// Instead of using default export, we use named exports. That way we can group these exports
-// inside the `index.js` folder.
 export { reducer as dynamicModeGroupsReducer };

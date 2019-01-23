@@ -66,12 +66,10 @@ export const StyledRequirementsForm = styled.div`
 
 export const StyledModsForm = styled.div`
   padding: 20px 30px 0 16px;
-  /* display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-row-gap: 14px;
-  grid-template-areas:
-    ". . ."
-    "damage aps critStrike"
-    "dps eDps pDps"
-  ; */
+`;
+
+export const AddGroupWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 `;

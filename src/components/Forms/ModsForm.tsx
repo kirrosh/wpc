@@ -1,12 +1,15 @@
 import * as React from 'react';
-import { StyledModsForm, FormHeader } from './styled';
+import { StyledModsForm, FormHeader, AddGroupWrapper } from './styled';
 import FilterGroup from 'components/FilterGroup';
 import { connect } from 'react-redux';
 import { ApplicationState } from 'store';
-import { StateProps } from 'types/helpers';
+import { StateProps, DispatchProps } from 'types/helpers';
+import { addModeGroup } from 'store/dynamicModeGroups/actions';
+import Button from 'common/Button';
 
 type Props = {}
-& StateProps<typeof mapStateToProps>;
+& StateProps<typeof mapStateToProps>
+& DispatchProps<typeof mapDispatchToProps>;
 class ModsForm extends React.PureComponent<Props> {
   renderModes = () => {
     const { dynamicModeGroups } = this.props;
@@ -26,6 +29,9 @@ class ModsForm extends React.PureComponent<Props> {
           Mods
         </FormHeader>
         {this.renderModes()}
+        <AddGroupWrapper>
+          <Button onClick={this.props.addModeGroup} text={'Add group'}/>
+        </AddGroupWrapper>
       </StyledModsForm>
     );
   }
@@ -35,4 +41,8 @@ const mapStateToProps = (state: ApplicationState) => ({
   dynamicModeGroups: state.dynamicModeGroups,
 });
 
-export default connect(mapStateToProps)(ModsForm);
+const mapDispatchToProps = ({
+  addModeGroup,
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ModsForm);

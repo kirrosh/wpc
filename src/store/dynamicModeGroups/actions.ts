@@ -8,6 +8,9 @@ export const setModeValues = (payload: {groupId: string; modeId: string; value: 
 export const addModeGroup = () => {
   return action(DynamicModesActionTypes.ADD_MODE_GROUP);
 };
+export const removeModeGroup = (groupId: string) => {
+  return action(DynamicModesActionTypes.REMOVE_MODE_GROUP, groupId);
+};
 
 export const addMode = (groupId: string) => {
   return action(DynamicModesActionTypes.ADD_MODE, groupId);
